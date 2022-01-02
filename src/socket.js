@@ -1,6 +1,8 @@
 import { Server } from "socket.io";
 import { exec } from "child_process";
 // const socketIO = require("socket.io")
+import dotenv from "dotenv";
+dotenv.config()
 
 let childServer = null;
 
@@ -30,7 +32,7 @@ const initSocketIo = (appServer)=> {
             initialiceServer = true;
 
             childServer = exec(
-                '"C:\\Program Files\\Java\\jdk-17.0.1\\bin\\java" -jar "C:\\Users\\adri_\\Documents\\MisPluginsMinecraft\\Servidor Testeo\\1.18\\craftbukkit-1.18.jar"',
+                process.env.COMMAND_JAVA,
                 {
                     cwd: './initialServer'
                 },
